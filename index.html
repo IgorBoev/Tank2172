@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.15.1/dist/phaser-arcade-physics.min.js"></script>
+</head>
+<body>
+ 
+    <script>
+    var config = {
+        type: Phaser.AUTO,                      // автовыбор между Canvas и WebGL
+        width: 800,                             // ширина игрового поля
+        height: 600,                            // высота игрового поля
+        physics: {                              // настройка физики взаимодействия объектов
+            default: 'arcade',
+            arcade: {
+                gravity: { y: 0 }               // задание гравитации
+            }
+        },
+        scene: {
+            preload: preload,                   // указание функции preload как отвественной за предзагрузку ассетов
+            create: create                      // указание функции creat как отвественной за создание игровых объектов
+            //, update: update
+        }
+    };
+ 
+    var game = new Phaser.Game(config);         // создание экземпляра игры
+ 
+    function preload ()
+    {
+        this.load.setBaseURL('');                                  // задание базового URL
+ 
+        this.load.image('tank', '/assets/images/maintank.png');
+    }
+ 
+    function create ()
+    {
+        var tank = this.physics.add.image(61, 83, 'tank');
+ 
+    }
+    </script>
+ 
+
+    <script src="script.js"></script>
+</body>
+</html>
